@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Scene/blocksnowL.tscn" type="PackedScene" id=2]
@@ -21,6 +21,10 @@ albedo_color = Color( 0.639216, 0.976471, 0.384314, 1 )
 points = PoolVector3Array( 15, 0, 15, -15, 0, 15, 15, 0, -15, -15, 0, -15 )
 
 [sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=5]
 size = 40
 font_data = ExtResource( 10 )
 
@@ -131,6 +135,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03025, 2.97172, 6.96662 )
 transform = Transform( 1, 0, 0, 0, 0.94558, 0.325389, 0, -0.325389, 0.94558, 0, 6.35117, 16.2875 )
 
 [node name="CameraHub" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="Camera" type="Camera" parent="CameraHub"]
 transform = Transform( 0.472271, 0.351996, -0.808121, 0, 0.916805, 0.399336, 0.881453, -0.188595, 0.43298, -19.4246, 6.03298, 13.4744 )
@@ -180,10 +185,31 @@ color = Color( 0, 0, 0, 0.25098 )
 
 [node name="Score" type="Label" parent="HUD"]
 anchor_bottom = 1.0
-margin_left = 2.10529
+margin_left = 3.15796
 margin_top = 2.78947
-margin_right = 185.105
+margin_right = 186.158
 margin_bottom = 54.7895
 custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 2
+
+[node name="ColorRect2" type="ColorRect" parent="HUD"]
+margin_left = 849.0
+margin_top = 1.0
+margin_right = 1024.0
+margin_bottom = 53.0
+color = Color( 0, 0, 0, 0.25098 )
+
+[node name="Remaining" type="Label" parent="HUD"]
+margin_left = 847.158
+margin_top = -0.157898
+margin_right = 1024.16
+margin_bottom = 106.842
+custom_fonts/font = SubResource( 5 )
+text = "0
+"
+align = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Countdown_timeout"]

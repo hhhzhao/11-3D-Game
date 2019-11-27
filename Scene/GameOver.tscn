@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 6.10352e-005
+margin_top = 189.474
+margin_right = 1024.0
+margin_bottom = 203.474
+text = "Game Over
+You Lost!"
+align = 1
